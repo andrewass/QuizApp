@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <script src="js/minJquery.js"></script>
+    <script src="js/various.js"></script>
+    <script src="js/indexScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/indexstyle.css" />
+
+</head>
+
+
+<body>
+
+<!-- A div representing the main menu of the application -->
+<div class="view" id="mainMenu">
+    <h1>Quiz App</h1>
+    <div id="SelectMenu">
+        <p>Category : </p>
+        <select id="catSel"></select>
+        <p>Difficulty : </p>
+        <select id="diffSel">
+            <option id="easy">Easy</option>
+            <option id="medium">Medium</option>
+            <option id="hard">Hard</option>
+        </select>
+    </div>
+
+    <div id="subSelect">
+        <button id="init" onclick="startClicked()">Start</button>
+    </div>
+</div>
+
+
+
+<!-- A div representing a question, and multiple answer-alternatives -->
+<div class="view " id="quizBlock">
+    <h1>Quiz App</h1>
+    <p id="question"></p>
+    <button id="b1" class="quizB" onclick="answerClicked(this.id)"></button>
+    <button id="b2" class="quizB" onclick="answerClicked(this.id)"></button>
+    <button id="b3" class="quizB" onclick="answerClicked(this.id)"></button>
+    <button id="b4" class="quizB" onclick="answerClicked(this.id)"></button>
+
+    <div id="subTask">
+        <button id="menu" onclick="returnToMenu()">Menu</button>
+        <button id="next" onclick="getNextQuestion()">Next</button>
+
+    </div>
+</div>
+
+
+</body>
+</html>
