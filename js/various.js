@@ -11,10 +11,10 @@ function decode(sentence) {
  */
 function shuffle(array, len){
 
-    for(var i=0; i<array.length; i++){
-        var randNumb = Math.floor( Math.random() * len);
+    for(let i=0; i<array.length; i++){
+        let randNumb = Math.floor( Math.random() * len);
         //alert(randNumb);
-        var temp = array[i];
+        let temp = array[i];
         array[i] = array[randNumb];
         array[randNumb] = temp;
     }

@@ -11,9 +11,11 @@ class Question{
     }
 }
 
-var questions = [];
-var counter = -1;
-var answerSelected = false;
+let questions = [];
+let counter = -1;
+let correctAnswered = 0;
+let answered = 0;
+let answerSelected = false;
 
 
 /* Fetch data in JSON format.
@@ -39,20 +41,24 @@ function fillCategories(){
    Finally, the quiz-page loads.
  */
 function startClicked(){
-    var categoryID = $("#catSel").find(":selected").attr("id");
-    var difficulty = $("#diffSel").find(":selected").attr("id");
+    let categoryID = $("#catSel").find(":selected").attr("id");
+    let difficulty = $("#diffSel").find(":selected").attr("id");
 
     const url = "https://opentdb.com/api.php?amount=10&category="+categoryID+
         "&difficulty="+difficulty+"&type=multiple";
 
     counter = 0;
     questions = [];
+    answerSelected = false;
+    answered = 0;
+    correctAnswered = 0;
     $.getJSON(url, function(jsonData){
         $.each(jsonData.results, function(index, val) {
             questions.push( new Question(val.question, val.correct_answer, val.incorrect_answers));
         });
         fillQuestionDiv();
         $(".view").hide();
+        $("#score").text("Score: "+correctAnswered+" \/ "+answered);
         $("#quizBlock").show();
     });
 }
@@ -72,7 +78,7 @@ function fillQuestionDiv(){
 
     questions[counter].alternatives = shuffle(questions[counter].alternatives, 4);
 
-    for(var i=1; i<=4; i++){
+    for(let i=1; i<=4; i++){
         $("#b"+i).text( decode(questions[counter].alternatives[i-1]) );
     }
 }
@@ -86,12 +92,15 @@ function fillQuestionDiv(){
 function answerClicked(buttonId){
     if(answerSelected)
         return;
+    answered++;
     if( questions[counter].correct == $("#"+buttonId).text()){
         $("#"+buttonId).css("background-color","green");
+        correctAnswered++;
     }
     else{
         $("#"+buttonId).css("background-color","red");
     }
+    $("#score").text("Score: "+correctAnswered+" \/ "+answered);
     answerSelected = true;
 }
 
