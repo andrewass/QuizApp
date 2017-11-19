@@ -58,6 +58,7 @@ function startClicked(){
         });
         fillQuestionDiv();
         $(".view").hide();
+        $("#alerts").text("");
         $("#score").text("Score: "+correctAnswered+" \/ "+answered);
         $("#quizBlock").show();
     });
@@ -70,7 +71,7 @@ function startClicked(){
 function fillQuestionDiv(){
     counter++;
     if(counter == questions.length) {
-        alert("No more questions");
+        $("#alerts").text("No more questions");
         return;
     }
     $(".quizB").css("background-color","Gainsboro");

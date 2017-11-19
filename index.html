@@ -16,7 +16,9 @@
 
 <!-- A div representing the main menu of the application -->
 <div class="view" id="mainMenu">
-    <h1>Quiz App</h1>
+    <div class="header">
+        <h1>Quiz App</h1>
+    </div>
     <div id="SelectMenu">
         <p>Category : </p>
         <select id="catSel"></select>
@@ -37,7 +39,9 @@
 
 <!-- A div representing a question, and multiple answer-alternatives -->
 <div class="view " id="quizBlock">
-    <h1>Quiz App</h1>
+    <div class="header">
+        <h1>Quiz App</h1>
+    </div>
     <p id="question"></p>
     <button id="b1" class="quizB" onclick="answerClicked(this.id)"></button>
     <button id="b2" class="quizB" onclick="answerClicked(this.id)"></button>
@@ -48,6 +52,7 @@
         <button id="menu" onclick="returnToMenu()">Menu</button>
         <button id="next" onclick="getNextQuestion()">Next</button>
         <p id="score"></p>
+        <p id="alerts"></p>
     </div>
 </div>
 
