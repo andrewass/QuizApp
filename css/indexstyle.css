@@ -25,6 +25,7 @@ button{
     padding-top: 10%;
 }
 
+
 .header{
     padding-top: 2%;
     padding-bottom: 2%;
@@ -40,4 +41,9 @@ button{
 .quizB{
     display: block;
     margin: 4% auto;
+}
+
+
+#question{
+    padding: 2% 10% 2% 10%;
 }
